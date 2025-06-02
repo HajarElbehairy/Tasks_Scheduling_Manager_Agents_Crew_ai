@@ -1,0 +1,6 @@
+crewai==0.28.8
+streamlit
+groq
+langchain-groq
+python-dotenv
+datetime
