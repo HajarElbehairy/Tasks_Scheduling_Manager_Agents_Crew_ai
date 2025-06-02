@@ -7,7 +7,7 @@
 
 A powerful task scheduling system that uses AI agents to organize your day based on priorities and deadlines. This project leverages a team of specialized AI agents to analyze, schedule, and optimize your tasks intelligently.
 
-![Smart Task Manager Demo](https://i.imgur.com/8YjYu5f.png)
+
 
 ## ✨ Features
 
