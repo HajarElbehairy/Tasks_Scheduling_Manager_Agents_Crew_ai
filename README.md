@@ -1,80 +1,59 @@
-# 🚀 Smart Task Manager with AI Agents
+
+
+# 🚀 Tasks Scheduling Manager with AI Agents
 
 ![Task Management](https://img.shields.io/badge/Task%20Management-AI%20Powered-brightgreen)
 ![Built with CrewAI](https://img.shields.io/badge/Built%20with-CrewAI-blue)
-![LLM](https://img.shields.io/badge/LLM-Groq%20API-orange)
+![LLM](https://img.shields.io/badge/LLM-Gemini%20API-orange)
 ![UI](https://img.shields.io/badge/UI-Streamlit-red)
 
-A powerful task scheduling system that uses AI agents to organize your day based on priorities and deadlines. This project leverages a team of specialized AI agents to analyze, schedule, and optimize your tasks intelligently.
+An intelligent task scheduling system that uses multiple AI agents to organize your day based on priorities and deadlines. This project leverages the power of CrewAI and Google's Gemini to create optimized schedules from simple task lists.
 
+## 🎯 Project Overview
 
+This application helps you transform a simple list of tasks with deadlines into a smart, prioritized schedule. The system analyzes deadlines, estimates time requirements, and creates a structured plan that maximizes your productivity.
 
-## ✨ Features
+## ✨ Key Features
 
-- **🔍 Intelligent Deadline Analysis**: Automatically identifies and prioritizes tasks based on deadlines
-- **⏰ Smart Time Allocation**: Creates optimized time blocks for your tasks
-- **📊 Priority-Based Scheduling**: Ensures important tasks get the best time slots
-- **☕ Strategic Breaks**: Integrates appropriate breaks to maintain productivity
-- **📱 Simple Interface**: Easy-to-use Streamlit UI
-- **📥 Exportable Results**: Download your schedule as a text file
+- **🔍 Deadline-Based Prioritization**: Automatically identifies urgent tasks and organizes them by priority
+- **⏰ Intelligent Time Allocation**: Creates optimized time blocks for your tasks
+- **📊 Priority Categories**: Organizes tasks into High, Medium and Low priority groups
+- **☕ Strategic Breaks**: Inserts appropriate breaks to maintain productivity
+- **📥 Multiple Export Options**: Download your schedule as a standard schedule or checkbox to-do list
 
-## 🛠️ How It Works
+## 🧠 How It Works: The AI Agent Team
 
-The system consists of three specialized AI agents working together:
+The system uses a team of three specialized AI agents powered by Google's Gemini 2.0 Flash:
 
 1. **Task Analyzer Agent**
-   - Parses your tasks and extracts deadline information
-   - Sorts tasks by urgency and importance
-   - Classifies tasks by type and estimates required time
+   - Processes raw task input with deadlines
+   - Extracts and sorts tasks by urgency
+   - Assigns priority levels and estimates time requirements
 
 2. **Schedule Builder Agent**
-   - Creates a time-optimized daily schedule
-   - Allocates prime productive hours to critical tasks
-   - Balances workload throughout the day
+   - Creates time slots based on task priorities
+   - Ensures urgent tasks get priority placement
+   - Designs a balanced daily schedule
 
 3. **Productivity Enhancer Agent**
+   - Formats the schedule as an easy-to-follow to-do list
    - Adds strategic breaks between tasks
-   - Implements productivity techniques like Pomodoro
-   - Formats the schedule as an easy-to-use to-do list
+   - Includes productivity tips
 
-## 📋 Input Format
+## 📋 Task Input Format
 
-Tasks should be formatted as follows:
+Tasks should be entered in this format:
 ```
 - Task name (deadline: when, duration)
 ```
 
 Examples:
 ```
-- Complete project report (deadline: today 5pm, 2 hours)
-- Team meeting (deadline: tomorrow 2pm, 1 hour)
-- Review emails (deadline: today evening, 30 minutes)
-- Call client (deadline: Friday morning, 45 minutes)
-- Research new tools (deadline: next week, 3 hours)
-```
-
-## 📊 Output Example
-
-```
-📅 TODAY'S TO-DO LIST
-
-🔴 HIGH PRIORITY
-1. 9:00 AM - 11:00 AM: Complete project report (2 hours)
-2. 11:00 AM - 12:00 PM: Review emails (1 hour)
-
-🟡 MEDIUM PRIORITY
-1. 1:00 PM - 2:00 PM: Team meeting (1 hour)
-2. 3:00 PM - 3:45 PM: Call client (45 minutes)
-
-🟢 LOW PRIORITY
-1. 4:00 PM - 5:00 PM: Research new tools (1 hour)
-
-☕ BREAKS & PERSONAL
-1. 12:00 PM - 1:00 PM: Lunch break
-2. 2:00 PM - 2:15 PM: Coffee break
-3. 5:00 PM onwards: Personal time
-
-💡 TIP: Start with high priority tasks when your energy is highest!
+- Complete quarterly presentation (deadline: today 4pm, 2 hours)
+- Client meeting preparation (deadline: tomorrow 9am, 1 hour)
+- Review and respond to emails (deadline: today end of day, 30 minutes)
+- Gym workout session (deadline: today evening, 45 minutes)
+- Read development book chapter (deadline: this week, 1 hour)
 ```
 
 ## 🚀 Getting Started
@@ -82,14 +61,14 @@ Examples:
 ### Prerequisites
 
 - Python 3.8+
-- A Groq API key (get one at [console.groq.com](https://console.groq.com))
+- Google Gemini API key
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/smart-task-manager.git
-   cd smart-task-manager
+   git clone https://github.com/HajarElbehairy/Tasks_Scheduling_Manager_Agents_Crew_ai.git
+   cd Tasks_Scheduling_Manager_Agents_Crew_ai
    ```
 
 2. **Install required packages**
@@ -101,7 +80,7 @@ Examples:
    
    Create a `.env` file in the project directory:
    ```
-   GROQ_API_KEY=your_groq_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
 4. **Run the application**
@@ -112,51 +91,63 @@ Examples:
 ## 📁 Project Structure
 
 ```
-smart-task-manager/
-├── app.py                 # Streamlit UI
-├── agents.py              # AI agent definitions
-├── tasks.py               # Task definitions for the agents
-├── crew.py                # Agent orchestration
-├── requirements.txt       # Dependencies
-├── .env                   # API keys (create this file)
-└── README.md              # This file
+Tasks_Scheduling_Manager_Agents_Crew_ai/
+├── app.py                 # Streamlit UI application
+├── agents.py              # AI agent definitions with roles & goals
+├── tasks.py               # Task definitions for each agent
+├── crew.py                # Agent orchestration system
+├── requirements.txt       # Project dependencies
+├── .env                   # API key configuration (create this file)
+└── README.md              # Project documentation
 ```
 
 ## 🔧 Technology Stack
 
-- **Agent Framework**: [CrewAI](https://github.com/joaomdmoura/crewAI)
-- **LLM Provider**: [Groq API](https://console.groq.com)
-- **UI Framework**: [Streamlit](https://streamlit.io)
-- **Language Models**: Llama3 (via Groq)
+- **Agent Framework**: [CrewAI](https://github.com/joaomdmoura/crewAI) - For agent orchestration
+- **LLM Provider**: Google Gemini API (Gemini 2.0 Flash model)
+- **UI Framework**: [Streamlit](https://streamlit.io) - For the web interface
+- **Python Libraries**: langchain, dotenv, datetime
 
-## ⚠️ Limitations
+## 💡 Usage Examples
 
-- Free tier Groq API has rate limits that may cause occasional errors
-- Complex task descriptions might not parse correctly
-- The system works best with clearly defined deadlines and durations
+The system works with both English and Arabic task inputs:
+
+### English Example
+```
+- Prepare presentation for meeting (deadline: today 3pm, 2 hours)
+- Call main client (deadline: tomorrow morning, 30 minutes)
+- Complete monthly sales report (deadline: Friday, 3 hours)
+- Review new project plan (deadline: next week, 1 hour)
+- Respond to emails (deadline: end of day, 45 minutes)
+```
+
+### Arabic Example
+```
+- تحضير عرض تقديمي للاجتماع (deadline: اليوم 3م، 2 ساعة)
+- الاتصال بالعميل الرئيسي (deadline: غداً صباحاً، 30 دقيقة)
+- إكمال تقرير المبيعات الشهري (deadline: الجمعة، 3 ساعات)
+- مراجعة خطة المشروع الجديد (deadline: الأسبوع القادم، 1 ساعة)
+- الرد على رسائل البريد الإلكتروني (deadline: نهاية اليوم، 45 دقيقة)
+```
 
 ## 🔮 Future Enhancements
 
-- Integration with calendar systems (Google Calendar, Outlook)
+- Google Calendar integration
 - Recurring task support
-- Mobile app version
-- Progress tracking and analytics
+- Task completion tracking
 - Multiple day planning
+- Mobile application version
 
-## 📚 References
+## 📚 Resources & References
 
-- [CrewAI Documentation](https://crewai.io)
-- [Groq API Documentation](https://console.groq.com/docs)
+- [CrewAI Documentation](https://docs.crewai.com/)
+- [Google Gemini API Documentation](https://ai.google.dev/docs)
 - [Streamlit Documentation](https://docs.streamlit.io)
 
-## 🔗 Connect & Contribute
+## 👤 Author
 
-Feel free to fork this repository, submit PRs, or suggest improvements!
+- **Hajar Elbehairy** - [GitHub Profile](https://github.com/HajarElbehairy)
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
 
----
-
-Built with ❤️ using AI agents to make your day more productive!
+Built with ❤️ using CrewAI and Google Gemini API to make task management smarter and more efficient!
