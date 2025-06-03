@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Setup LLM
-llm = ChatGroq(
-    groq_api_key=os.getenv("GROQ_API_KEY"),
-    model_name="groq/llama3-8b-8192",
-    temperature=0,
-    max_tokens=800
+from crewai import LLM
+
+llm = LLM(
+    model="gemini/gemini-2.0-flash",
+    temperature=0.7,
 )
 
 # Task Analyzer Agent

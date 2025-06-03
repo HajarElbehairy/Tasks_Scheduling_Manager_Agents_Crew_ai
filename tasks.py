@@ -17,10 +17,12 @@ def create_task_analysis_task(tasks_content):
         expected_output="Simple task list sorted by deadline with priority and time estimates"
     )
 
-def create_schedule_building_task():
+def create_schedule_building_task(analyzed_tasks=None):
     return Task(
-        description="""
+        description=f"""
         Create a simple daily schedule based on the analyzed tasks:
+        
+        {analyzed_tasks if analyzed_tasks else "Use the output from the task analyzer"}
         
         Requirements:
         1. Schedule urgent tasks in morning hours
@@ -32,10 +34,12 @@ def create_schedule_building_task():
         expected_output="Clean schedule with time slots, task names, duration, and priority"
     )
 
-def create_productivity_enhancement_task():
+def create_productivity_enhancement_task(schedule=None):
     return Task(
-        description="""
+        description=f"""
         Create a To-Do List format schedule with checkboxes.
+        
+        {schedule if schedule else "Use the output from the schedule builder"}
         
         **CRITICAL:** Ensure EACH CHECKBOX ITEM IS ON ITS OWN SEPARATE LINE.
         
@@ -47,25 +51,5 @@ def create_productivity_enhancement_task():
         5. Keep it clean and organized like a daily planner.
         """,
         agent=productivity_enhancer,
-        expected_output="""To-Do List format like this (each item on new line):
-
-📅 **TODAY'S TO-DO LIST**
-
-## 🔴 HIGH PRIORITY
-☐ 9:00 AM - 11:00 AM: Complete project report (2 hours)
-☐ 11:00 AM - 12:00 PM: Team meeting (1 hour)
-
-## 🟡 MEDIUM PRIORITY  
-☐ 1:00 PM - 2:30 PM: Review documents (1.5 hours)
-☐ 3:00 PM - 4:00 PM: Email responses (1 hour)
-
-## 🟢 LOW PRIORITY
-☐ 4:30 PM - 5:30 PM: Planning next week (1 hour)
-
-## ☕ BREAKS & PERSONAL
-☐ 12:00 PM - 1:00 PM: Lunch break
-☐ 2:30 PM - 2:45 PM: Coffee break
-☐ 5:30 PM onwards: Personal time
-
-💡 **TIP:** Start with high priority tasks when you're most focused!"""
+        expected_output="To-Do List format with each task on a new line, grouped by priority, with time slots assigned based on the actual input tasks from the user."
     )

@@ -2,31 +2,25 @@ from crewai import Crew, Process
 from agents import task_analyzer, schedule_builder, productivity_enhancer
 from tasks import create_task_analysis_task, create_schedule_building_task, create_productivity_enhancement_task
 
-def create_scheduling_crew(tasks_content):
-    # Create tasks
-    task_analysis = create_task_analysis_task(tasks_content)
-    schedule_building = create_schedule_building_task()
-    productivity_enhancement = create_productivity_enhancement_task()
+class ProductivityCrew:
+    def __init__(self):
+        self.task_analyzer = task_analyzer
+        self.schedule_builder = schedule_builder
+        self.productivity_enhancer = productivity_enhancer
     
-    # Create crew
-    crew = Crew(
-        agents=[task_analyzer, schedule_builder, productivity_enhancer],
-        tasks=[task_analysis, schedule_building, productivity_enhancement],
-        process=Process.sequential,
-        verbose=False
-    )
-    
-    return crew
-
-def run_scheduling_process(tasks_content):
-    """Run the scheduling process with error handling"""
-    try:
-        crew = create_scheduling_crew(tasks_content)
+    def run(self, tasks_content):
+        # Create the tasks
+        analysis_task = create_task_analysis_task(tasks_content)
+        schedule_task = create_schedule_building_task()  # Will use output from previous task
+        enhancement_task = create_productivity_enhancement_task()  # Will use output from previous task
+        
+        # Create and run the crew
+        crew = Crew(
+            agents=[self.task_analyzer, self.schedule_builder, self.productivity_enhancer],
+            tasks=[analysis_task, schedule_task, enhancement_task],
+            verbose=True,
+            process=Process.sequential  # Tasks run in sequence, passing outputs forward
+        )
+        
         result = crew.kickoff()
         return result
-    except Exception as e:
-        error_msg = str(e)
-        if "rate_limit" in error_msg.lower():
-            return "⏳ Rate limit reached. Please wait a few seconds and try again."
-        else:
-            return f"❌ Error creating schedule: {error_msg}"
