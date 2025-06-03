@@ -1,6 +1,6 @@
 crewai==0.28.8
-streamlit
-groq
-langchain-groq
-python-dotenv
+streamlit>=1.26.0
+langchain-groq>=0.0.1
+python-dotenv>=0.21.0
 datetime
+langchain>=0.0.267
